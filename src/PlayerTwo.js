@@ -8,7 +8,15 @@ class PlayerTwo extends React.Component {
                 <span>Name: {this.props.name}</span><br/>
                 <span>Played number of times: 
                 <label>4</label></span><br/>
-                <button type="button">This user is playing now</button>
+                <button
+                    type="button"
+                    onClick={() => {
+                        this.props.btnClick(this.props.name);
+                    }}
+                    disabled={this.props.playingNow ? "disabled" : ""}
+                    >
+                    {this.props.playingNow ? "This user is playing now" : "Play"}
+                </button>
             </div>
         )
     }

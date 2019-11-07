@@ -6,17 +6,35 @@ class GameAdmin extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            nameOne: "",
-            nameTwo: "",
+            nameOne: "Default 1",
+            nameTwo: "Default 2",
+            playingNowOne: false,
+            playingNowTwo: false,
         };
+        this.onPlayClick = this.onPlayClick.bind(this);
     }
+
+    onPlayClick(name) {
+        console.log(name);
+        this.setState(oldstate => ({
+          playingNowOne: name === oldstate.nameOne,
+          playingNowTwo: name === oldstate.nameTwo
+        }));
+      }
 
     render() {
         return (
             <div className="ml-5">
-                <PlayerOne name={this.state.nameOne}/>
+                <PlayerOne 
+                name={this.state.nameOne}
+                playingNow={this.state.playingNowOne}
+                btnClick={this.onPlayClick}
+                />
                 <br/>
-                <PlayerTwo name={this.state.nameTwo}/>
+                <PlayerTwo name={this.state.nameTwo}
+                playingNow={this.state.playingNowTwo}
+                btnClick={this.onPlayClick}
+                />
                 <br/>
                 <br/>
                 <form>
