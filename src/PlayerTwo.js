@@ -3,13 +3,12 @@ import React from 'react'
 class PlayerTwo extends React.Component {
     render(){
         return(
-            <div>
-                <b>Player Two</b><br/>
-                Name: 
-                <label>name form input field</label><br/>
-                Played number of times: 
-                <label>4</label><br/>
-                <button>This user is playing now</button>
+            <div className="row card">
+                <span><b>Player Two</b></span><br/>
+                <span>Name: {this.props.name}</span><br/>
+                <span>Played number of times: 
+                <label>4</label></span><br/>
+                <button type="button">This user is playing now</button>
             </div>
         )
     }
